@@ -15,8 +15,8 @@ It is possible to tune the MPC controller to aim for higher vehicle speed.
 ### How it Looks
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases). Select "PID Controller" option. 
 
-A sample frame from one of the videos as the vehicle negotiates the circuit inside the simulator is ![shown](https://github.com/RomanoViolet/Udacity-PID-Controller/blob/master/Results/screenshot.png)
-
+A sample frame from one of the videos as the vehicle negotiates the circuit inside the simulator is ![shown](https://github.com/RomanoViolet/Udacity-Unscented-Kalman-Filter/blob/master/Results/screenshot.png)
+The yellow line represents the second order polynomial fitted to the provided waypoints, whereas the green line represents the path computed by the optimizer, and is to be followed by the vehicle.
 
 ### Prerequisites
 _Ad-verbatim from Udacity's Instructions:_
@@ -40,31 +40,20 @@ Once all libraries have been built and installed, the `CMakeLists.txt` needs to 
 
 ### Structure of the Project
 The project is structured as follows:
-- Folder "src": Contains the core logic required to build the PID Controller application.
-- Folder "Results": Contains a sample video and a screenshot when testing the PID controller using the simulator supplied by Udacity.
-- Folder "Python": The implementation of the Twiddle algorithm. The python script included therein requires the PID controller binary to be available (but not running), alongwith the simulator with .
-- `build.sh`: A shell script to build the PID controller project.
+- Folder "src": Contains the core logic required to build the MPC.
+- Folder "Results": Contains a sample video and a screenshot when testing the MPC using the simulator supplied by Udacity. The yellow line represents the polynomial fitted to the provided waypoints, whereas the green line representst the trajectory computed by the optimizer, and is the path to be followed by the vehicle.
+- `build.sh`: A shell script to build the MPC project.
 - `install-ubuntu.sh`: A script required for installing dependencies for running the simulator. See the section above on "Prerequisites"
 - `run.sh`: A shell script to run the binary built using `build.sh`, and connects to the Udacity's Term 2 simulator. See the section above "How it Looks".
 
-### Implementation of the Twiddle Algorithm
-The python script _searchPIDValues.py_ contained in Python/ folder runs the PID controller binary and analyzes the returned metric to be optimized (the Cross Track Error, CTE) in order to move the twiddle algorithm forward. The script _searchPIDValues.py_ is able automatically reset the simulator if the vehicle has diverted too much from the center of the lane as part of the exploration process. Typically, the script can be left to execute on a computer over a period of time as it logs acceptable values values of P, I, and D as per the criteria set (at the moment: successfully completing 5000 frames, where 2500 frames correspond to ~1.1 lap of the circult).
 
-
-### Running the PID Controller
-- In the Twiddle Mode (that is: searching for P,I, and D values):
--- Build the PID application
--- Start the Udacity Term 2 simulator, and select the option "PID Controller"
--- Run _searchPIDValues.py_.
-
-- In the production mode (i.e., PID controller values are known):
--- Set the appropriate values of P,I, and D in main.cpp (lines: 53-55), and build the application,
--- Start the Udacity Term 2 simulator, and select the option "PID Controller"
-
+### Running the Model Predictive Controller
+- `build.sh`, followed by
+- `run.sh`.
+- Start the Udacity Term 2 Simulator, and choose the option "MPC Contoller"
 
 ### Pending Improvements
-- Increasing the speed of the vehicle is possible by further tuning of the PID controller, and
-- Replacing the current throttle modulation implementation with a PID controller that works alongwith steering-angle PID controller.
+- The speed of the vehicle can be increased even further. Suggestions welcome.
 
 ### Credits
 - Udacity: Lecturers, and mentors;

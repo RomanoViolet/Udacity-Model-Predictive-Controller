@@ -13,7 +13,7 @@ It is possible to tune the MPC controller to aim for higher vehicle speed.
 
 
 ### How it Looks
-This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases). Select "PID Controller" option. 
+This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases). Select "MPC Controller" option. 
 
 A sample frame from one of the videos as the vehicle negotiates the circuit inside the simulator is ![shown](https://github.com/RomanoViolet/Udacity-Model-Predictive-Controller/blob/master/Results/screenshot.png)
 The yellow line represents the second order polynomial fitted to the provided waypoints, whereas the green line represents the path computed by the optimizer, and is to be followed by the vehicle.

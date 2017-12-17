@@ -1,0 +1,44 @@
+project(MPC)
+
+cmake_minimum_required (VERSION 3.5)
+
+# -g allows for gdb debugging
+# turn on -03 for best performance
+add_definitions(-std=c++11 -O3)
+
+set(CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "${CXX_FLAGS}")
+
+set(sources src/MPC.cpp src/main.cpp src/utils.cpp)
+
+include_directories(/usr/local/include)
+link_directories(/usr/local/lib)
+include_directories(src/Eigen-3.3)
+
+# Test Includes
+include_directories(/home/dumbledore/Documents/Self-Driving-Car-Engineer/Session-2/Libraries/IpOpt/include)
+include_directories(/home/dumbledore/.CustomInstalledApps/CPPAD/include)
+# End of Test Includes
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+include_directories(/usr/local/opt/openssl/include)
+link_directories(/usr/local/opt/openssl/lib)
+link_directories(/usr/local/Cellar/libuv/1*/lib)
+
+# Custom Links
+link_directories(/home/dumbledore/Documents/Self-Driving-Car-Engineer/Session-2/Libraries/IpOpt/lib)
+link_directories(/home/dumbledore/.CustomInstalledApps/HSL_MA27Solver/lib)
+# End of Custom Links
+
+
+
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+add_executable(mpc ${sources})
+
+#target_link_libraries(mpc ipopt z ssl uv uWS)
+
+# Alternative
+target_link_libraries(mpc "/home/dumbledore/Documents/Self-Driving-Car-Engineer/Session-2/Libraries/IpOpt/lib/libipopt.so" z ssl uv uWS)
+

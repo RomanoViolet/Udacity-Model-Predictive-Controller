@@ -32,6 +32,7 @@ From the project repository directory run the script: install-ubuntu.sh
 
 ### Additonal Dependencies
 The MPC project requires installation of following addition dependencies:
+- C++ Algorithmic Differentiation ([CPPAD]) Library and Development Headers (https://www.coin-or.org/CppAD/Doc/install.htm)
 - Interior Point Optimization Library, [IPOpt](https://www.coin-or.org/download.html). Before building the library, please also build and install additional libraries contained in the folder "Third Party", especially, LAPACK, BLAS, and HSL libraries. [PDF Instructions](https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw)
 - [MA27 Solver](http://www.hsl.rl.ac.uk/ipopt/)
 

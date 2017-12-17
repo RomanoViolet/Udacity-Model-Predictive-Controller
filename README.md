@@ -30,6 +30,13 @@ Linux Installation:
 
 From the project repository directory run the script: install-ubuntu.sh
 
+### Additonal Dependencies
+The MPC project requires installation of following addition dependencies:
+- Interior Point Optimization Library, [IPOpt](https://www.coin-or.org/download.html). Before building the library, please also build and install additional libraries contained in the folder "Third Party", especially, LAPACK, BLAS, and HSL libraries. [PDF Instructions](https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw)
+- [MA27 Solver](http://www.hsl.rl.ac.uk/ipopt/)
+
+Once all libraries have been built and installed, the `CMakeLists.txt` needs to be suitably adapted. A reference `CMakeLists.txt.reference` has been provided here which contains the working configuration used for developing the MPC project. Pay special attention to line `include_directories` and `link_directories` parameters. 
+
 
 ### Structure of the Project
 The project is structured as follows:
